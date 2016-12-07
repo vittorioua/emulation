@@ -33,9 +33,9 @@ QStringList Converter::dataSeparation(QString str)
     return tmp;
 }
 
-QString Converter::dataUnity(QPair<QString, double*> data)
+QString Converter::dataUnity(QStringList data)
 {
-    QTextStream resultStr;
+   /* QTextStream resultStr;
     resultStr<<data.first;
     int i=0;
     for(;;){
@@ -44,7 +44,7 @@ QString Converter::dataUnity(QPair<QString, double*> data)
         resultStr<<" "<<data.second[i];
         i++;
     }
-    return *resultStr.string();
+    return *resultStr.string();*/
 }
 
 Validator::Validator()
@@ -68,7 +68,7 @@ Validator::Validator()
 Validator::~Validator()
 {
     //delete m_ctrlConverter;
-    delete this->m_cmdData.second;
+
     delete this->m_cmdTemplate;
 }
 
@@ -93,7 +93,7 @@ QString Validator::getCmdUnity()
     return this->m_cmdUnity;
 }
 
-QPair<QString, double *> Validator::getCmdData()
+QStringList Validator::getCmdData()
 {
     return this->m_cmdData;
 }
@@ -103,7 +103,7 @@ void Validator::setCmdUnity(QString obj)
     this->m_cmdUnity=obj;
 }
 
-void Validator::setCmdData(QPair<QString, double *> obj)
+void Validator::setCmdData(QStringList obj)
 {
     this->m_cmdData=obj;
 }
@@ -118,13 +118,13 @@ int Validator::findOperation(QString str)
 
 bool Validator::separate(QString cmd)
 {
-    if(m_cmdTemplate->exactMatch(cmd)){
+   /* if(m_cmdTemplate->exactMatch(cmd)){
  //   if(cmd.contains(*m_cmdTemplate)){
         setCmdData(dataSeparation(cmd));
         return true;
     }
     //QMessageBox::critical(0,"adw","false2",QMessageBox::Ok);
-    return false;
+    return false;*/
 }
 
 bool Validator::unity()

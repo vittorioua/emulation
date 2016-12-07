@@ -66,18 +66,18 @@ static const uint qt_meta_data_Server[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    4,   49,    2, 0x06 /* Public */,
+       1,    1,   49,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,   58,    2, 0x0a /* Public */,
-       5,    0,   61,    2, 0x0a /* Public */,
-       6,    0,   62,    2, 0x0a /* Public */,
-       7,    2,   63,    2, 0x0a /* Public */,
-      11,    0,   68,    2, 0x08 /* Private */,
-      12,    0,   69,    2, 0x08 /* Private */,
+       3,    1,   52,    2, 0x0a /* Public */,
+       5,    0,   55,    2, 0x0a /* Public */,
+       6,    0,   56,    2, 0x0a /* Public */,
+       7,    2,   57,    2, 0x0a /* Public */,
+      11,    0,   62,    2, 0x08 /* Private */,
+      12,    0,   63,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Int, QMetaType::QString, QMetaType::QString, QMetaType::Int,    2,    2,    2,    2,
+    QMetaType::Void, QMetaType::QStringList,    2,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString,    4,
@@ -96,7 +96,7 @@ void Server::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         Server *_t = static_cast<Server *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->sendTableData((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
+        case 0: _t->sendTableData((*reinterpret_cast< QStringList(*)>(_a[1]))); break;
         case 1: _t->onCommand((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 2: _t->slotNewConnection(); break;
         case 3: _t->slotReadClient(); break;
@@ -120,7 +120,7 @@ void Server::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (Server::*_t)(int , QString , QString , int );
+            typedef void (Server::*_t)(QStringList );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Server::sendTableData)) {
                 *result = 0;
                 return;
@@ -166,9 +166,9 @@ int Server::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Server::sendTableData(int _t1, QString _t2, QString _t3, int _t4)
+void Server::sendTableData(QStringList _t1)
 {
-    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)) };
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

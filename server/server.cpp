@@ -26,7 +26,7 @@ Server::Server(int nPort, QWidget *parent):
     m_tableForm=new TableDlg(this);
     connect(m_ptcpServer,SIGNAL(newConnection()),this,SLOT(slotNewConnection()));
     connect(ui->console, SIGNAL(onCommand(QString)), this, SLOT(onCommand(QString)));
-    connect(this,SIGNAL(sendTableData(QStringList)),m_tableForm,SLOT(getTableData(QStringList)));
+    connect(this, SIGNAL(sendTableData(QStringList)), m_tableForm, SLOT(getTableData(QStringList)));
 }
 
 Server::~Server()
@@ -68,9 +68,11 @@ QString Server::systemCheck(QString str)
     }else{
         if(str=="RFTDS"){
             m_tableForm->show();
+            return "Success!";
         }else{
             if(str=="RFTDH"){
                 m_tableForm->hide();
+                return "Success!";
             }else{
                 if(str.contains("$FD$")){
                     m_ctrlValidator->separate(str);
@@ -80,7 +82,7 @@ QString Server::systemCheck(QString str)
             }
         }
     }
-    return "Success!";
+
 }
 
 void Server::sendToClient(const QString &str, QTcpSocket *pSocket)
@@ -121,9 +123,11 @@ void Server::slotReadClient()
         QTime time;
         QString str;
         in>>time>>str;
-        QString strMessage=time.toString()+" Client has sent: "+str;
+        if(!str.contains("$FD$")){
+            QString strMessage=time.toString()+" Client has sent: "+str;
+            ui->console->output(strMessage);
+        }
         //ui->textEdit->append(strMessage);
-        ui->console->output(strMessage);
         sendToClient(systemCheck(str),pClientSocket);
         m_nNextBlockSize=0;
         //

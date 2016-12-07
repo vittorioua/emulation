@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_TableDlg_t {
-    QByteArrayData data[7];
-    char stringdata0[44];
+    QByteArrayData data[4];
+    char stringdata0[27];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,14 +32,10 @@ static const qt_meta_stringdata_TableDlg_t qt_meta_stringdata_TableDlg = {
 QT_MOC_LITERAL(0, 0, 8), // "TableDlg"
 QT_MOC_LITERAL(1, 9, 12), // "getTableData"
 QT_MOC_LITERAL(2, 22, 0), // ""
-QT_MOC_LITERAL(3, 23, 6), // "number"
-QT_MOC_LITERAL(4, 30, 4), // "from"
-QT_MOC_LITERAL(5, 35, 2), // "to"
-QT_MOC_LITERAL(6, 38, 5) // "timer"
+QT_MOC_LITERAL(3, 23, 3) // "obg"
 
     },
-    "TableDlg\0getTableData\0\0number\0from\0"
-    "to\0timer"
+    "TableDlg\0getTableData\0\0obg"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,10 +53,10 @@ static const uint qt_meta_data_TableDlg[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    4,   19,    2, 0x0a /* Public */,
+       1,    1,   19,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int, QMetaType::QString, QMetaType::QString, QMetaType::Int,    3,    4,    5,    6,
+    QMetaType::Void, QMetaType::QStringList,    3,
 
        0        // eod
 };
@@ -71,7 +67,7 @@ void TableDlg::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         TableDlg *_t = static_cast<TableDlg *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->getTableData((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
+        case 0: _t->getTableData((*reinterpret_cast< QStringList(*)>(_a[1]))); break;
         default: ;
         }
     }

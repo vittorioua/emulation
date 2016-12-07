@@ -16,9 +16,11 @@ public:
     ~TableDlg();
 protected:
     void keyPressEvent(QKeyEvent *event);
+    void saveFile(QString fileName);
 public slots:
-    void getTableData(int number, QString from, QString to, int timer);
+    void getTableData(QStringList obg);
 private:
+    int rowCounter=0;
     QStandardItemModel *m_pModel;
     Ui::TableDlg *ui;
 };

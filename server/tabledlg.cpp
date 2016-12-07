@@ -2,6 +2,8 @@
 #include "ui_tabledlg.h"
 #include <QStandardItemModel>
 #include <QFileDialog>
+#include <qdebug.h>
+#include <server.h>
 #include <QTextStream>
 TableDlg::TableDlg(QWidget *parent) :
     QDialog(parent),
@@ -29,27 +31,46 @@ void TableDlg::keyPressEvent(QKeyEvent *event)
                                     QString::fromUtf8("Сохранить файл"),
                                     QDir::currentPath(),
                                     "Text (*.cvs *.txt);;All files (*.*)");
-         QFile f( fileName );
-         if( f.open( QIODevice::WriteOnly ) )
-         {
-             QTextStream ts( &f );
-             QStringList strList;
-             for (int i=0; i<ui->tableView->model()->rowCount(); i++)
-             {
-                 strList.clear();
-
-                 for (int j=0; j<ui->tableView->model()->columnCount(); j++)
-                     strList << ui->tableView->model()->data(ui->tableView->model()->index(i,j)).toString();
-
-                 ts << strList.join("\t") + "\n";
-             }
-             f.close();
-         }
+         saveFile(fileName);
     }
 }
 
-void TableDlg::getTableData(int number, QString from, QString to, int timer)
+void TableDlg::saveFile(QString fileName)
 {
+    QFile f( fileName );
+    if( f.open( QIODevice::WriteOnly ) )
+    {
+        QTextStream ts( &f );
+        QStringList strList;
+        for (int i=0; i<ui->tableView->model()->rowCount(); i++)
+        {
+            strList.clear();
 
+            for (int j=0; j<ui->tableView->model()->columnCount(); j++)
+                strList << ui->tableView->model()->data(ui->tableView->model()->index(i,j)).toString();
+
+            ts << strList.join("\t") + "\n";
+        }
+        f.close();
+    }
 }
+
+void TableDlg::getTableData(QStringList obg)
+{
+    qDebug()<<obg[0];
+    m_pModel->setData(ui->tableView->model()->index
+                                    (rowCounter,0),obg[0]);
+    m_pModel->setData(ui->tableView->model()->index
+                                    (rowCounter,0),obg[1]);
+    m_pModel->setData(ui->tableView->model()->index
+                                    (rowCounter,0),obg[2]);
+    m_pModel->setData(ui->tableView->model()->index
+                                    (rowCounter,0),obg[3]);
+    ui->tableView->setModel(m_pModel);
+    rowCounter++;
+}
+
+
+
+
 

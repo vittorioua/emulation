@@ -46,7 +46,7 @@ public:
     ~Converter();
 protected:
     QStringList dataSeparation(QString str);
-    QString dataUnity(QPair<QString, double*> data);
+    QString dataUnity(QStringList data);
     QRegExp *m_sprtTemplate;
 };
 
@@ -60,15 +60,15 @@ public:
     bool separate(QString cmd);
     bool unity();
     QString getCmdUnity();
-    QPair<QString, double *> getCmdData();
+    QStringList getCmdData();
     void setCmdUnity(QString obj);
-    void setCmdData(QPair<QString, double *> obj);
+    void setCmdData(QStringList obj);
     int findOperation(QString str); //1
 private:
     QRegExp *m_cmdTemplate;
     QVector<QString> m_opEnum;
     QString m_cmdUnity;
-    QPair<QString, double*> m_cmdData;
+    QStringList m_cmdData;
 };
 class Calculator: public Controller
 {
