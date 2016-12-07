@@ -1,0 +1,5 @@
+//Commands
+RFESO - request for engine switch-on
+RFESD - request for engine shutdown
+RFNCG - request for navigation course changing
+...
