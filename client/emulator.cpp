@@ -98,8 +98,8 @@ void Emulator::paintGL() {
                             ","+QString::number(flights[i]->getFrom().getAngleVer())+
                             " "+QString::number(flights[i]->getTo().getAngleHor())+
                             ","+QString::number(flights[i]->getTo().getAngleHor())+
-                            " "+flights[i]->getFlightNumber()+
-                            " "+flights[i]->getTimeFlight());
+                            " "+QString::number(flights[i]->getFlightNumber())+
+                            " "+QString::number(flights[i]->getTimeFlight()));
     }
 }
 
