@@ -45,7 +45,7 @@ public:
     Converter();
     ~Converter();
 protected:
-    QStringList dataSeparation(QString str);
+    QVector<QString> dataSeparation(QString str);
     QString dataUnity(QPair<QString, double*> data);
     QRegExp *m_sprtTemplate;
 };

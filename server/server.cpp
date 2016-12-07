@@ -26,7 +26,7 @@ Server::Server(int nPort, QWidget *parent):
     m_tableForm=new TableDlg(this);
     connect(m_ptcpServer,SIGNAL(newConnection()),this,SLOT(slotNewConnection()));
     connect(ui->console, SIGNAL(onCommand(QString)), this, SLOT(onCommand(QString)));
-    connect(this,SIGNAL(sendTableData(int, QString, QString, int)),m_tableForm,SLOT(getTableData(int, QString, QString, int)));
+    connect(this,SIGNAL(sendTableData(QStringList)),m_tableForm,SLOT(getTableData(QStringList)));
 }
 
 Server::~Server()
@@ -72,7 +72,11 @@ QString Server::systemCheck(QString str)
             if(str=="RFTDH"){
                 m_tableForm->hide();
             }else{
-                return "Error: Command not found.";
+                if(str.contains("$FD$")){
+                    m_ctrlValidator->separate(str);
+                }else{
+                    return "Error: Command not found.";
+                }
             }
         }
     }

@@ -26,30 +26,11 @@ Converter::~Converter()
     delete m_sprtTemplate;
 }
 
-QPair<QString, double*> Converter::dataSeparation(QString str)
+QStringList Converter::dataSeparation(QString str)
 {
     QString resultStr;
-    double *resultMass;
-    int count=0, i=0;
-    QStringList tmp =str.split(QRegExp("\\s+|\\,"),QString::SkipEmptyParts);
-    for(auto var: tmp){
-        if(var.toDouble()){
-            count++;
-        }else{
-            resultStr=var;
-        }
-    }
-    resultMass=new double[count+1];
-    for(auto var: tmp){
-        if(var.toDouble()){
-            if(i<count){
-                resultMass[i]=var.toDouble();
-            }
-            i++;
-        }
-    }
-    resultMass[count]=NULL;
-    return qMakePair(resultStr,resultMass);
+    QStringList tmp =str.split(QRegExp("\\s+|\$FD\$"),QString::SkipEmptyParts);
+    return tmp;
 }
 
 QString Converter::dataUnity(QPair<QString, double*> data)
@@ -77,6 +58,7 @@ Validator::Validator()
     this->m_opEnum.push_back("N");
     this->m_opEnum.push_back("RFTDS");
     this->m_opEnum.push_back("RFTDH");
+    this->m_opEnum.push_back("$FD$");
    /* this->m_ctrlConverter=new Converter();
     if(m_ctrlConverter->readyToWork()){
 
@@ -129,7 +111,7 @@ void Validator::setCmdData(QPair<QString, double *> obj)
 int Validator::findOperation(QString str)
 {
     for(auto var: m_opEnum){
-        if(str==var) return 1;
+        if(str.contains(var)) return 1;
     }
     return 0;
 }

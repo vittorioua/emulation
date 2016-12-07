@@ -41,7 +41,7 @@ private slots:
     void on_actionHelp_triggered();
     void on_actionAbout_the_program_triggered();
 signals:
-    void sendTableData(int, QString, QString, int);
+    void sendTableData(QStringList);
 };
 
 #endif // SERVER_H

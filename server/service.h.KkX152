@@ -15,37 +15,13 @@ public:
     ~Controller();
 };
 
-/*class Converter: public Controller
-{
-public:
-    Converter();
-    ~Converter();
-    QPair<QString, QVector<double>> dataSeparation(QString str);
-    QString dataUnity(QString str, QVector<double>);
-protected:
-};
-
-class Validator: public Controller
-{
-public:
-    Validator();
-    ~Validator();
-    bool operationCheck();
-    bool dataCheck();
-private:
-    Controller *m_ctrlConverter;
-    QSet<QString> m_opEnum;
-protected:
-    QPair<QString, QVector<double>> m_cmdData;
-};*/
-
 class Converter: public Controller
 {
 public:
     Converter();
     ~Converter();
 protected:
-    QStringList dataSeparation(QString str);
+    QVector<QString> dataSeparation(QString str);
     QString dataUnity(QPair<QString, double*> data);
     QRegExp *m_sprtTemplate;
 };
