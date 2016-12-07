@@ -1,0 +1,15 @@
+INPUT(
+./debug\main.o
+./debug\client.o
+./debug\emulator.o
+./debug\console.o
+./debug\earth.o
+./debug\glparams.o
+./debug\place.o
+./debug\plane.o
+./debug\flight.o
+./debug\moc_client.o
+./debug\moc_console.o
+./debug\moc_flight.o
+./debug\moc_emulator.o
+);

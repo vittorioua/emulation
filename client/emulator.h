@@ -1,0 +1,54 @@
+#ifndef EMULATOR
+#define EMULATOR
+
+#include <QMainWindow>
+#include <QOpenGLWidget>
+#include <QGLWidget>
+#include <QTimer>
+#include "earth.h"
+#include "place.h"
+#include "plane.h"
+#include "flight.h"
+#include "glparams.h"
+
+
+class Emulator: public QGLWidget{
+   Q_OBJECT
+public:
+
+    Emulator(QWidget* parent = 0);
+    ~Emulator();
+
+    void start();
+    float randomFloat(float a, float b);
+
+protected:
+    void initializeGL();
+    void resizeGL(int nWidth, int nHeight);
+    void paintGL();
+    void mousePressEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
+    void wheelEvent(QWheelEvent *);
+
+protected slots:
+    void change();
+    void getFlightData(int flightNumber, Place from, Place to, int timeFlight);
+signals:
+    void sendFlightData(QString);
+private:
+    void setupViewport(int width, int height);
+    void genTextures();
+
+    QPoint ptrMousePosition;
+    GLuint textureID[1];
+    Plane *plane;
+    Earth *earth;
+    QTimer *timer;
+    //Flight *flight;
+    QList <Flight *> flights;
+    GLParams *glparams;
+    static int flightCounter;
+};
+
+#endif // EMULATOR
+

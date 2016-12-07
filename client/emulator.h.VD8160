@@ -1,0 +1,5 @@
+#ifndef EMULATOR
+#define EMULATOR
+
+#endif // EMULATOR
+

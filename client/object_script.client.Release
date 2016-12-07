@@ -1,0 +1,15 @@
+INPUT(
+./release\main.o
+./release\client.o
+./release\emulator.o
+./release\console.o
+./release\earth.o
+./release\glparams.o
+./release\place.o
+./release\plane.o
+./release\flight.o
+./release\moc_client.o
+./release\moc_console.o
+./release\moc_flight.o
+./release\moc_emulator.o
+);
