@@ -75,7 +75,9 @@ QString Server::systemCheck(QString str)
                 return "Success!";
             }else{
                 if(str.contains("$FD$")){
-                    m_ctrlValidator->separate(str);
+                    //return str;
+                    if(m_ctrlValidator->separate(str))  emit sendTableData(m_ctrlValidator->getCmdData());
+                    else return "Error: Data separation fault";
                 }else{
                     return "Error: Command not found.";
                 }

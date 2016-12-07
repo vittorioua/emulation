@@ -228,6 +228,9 @@ debug/moc_server.cpp: C:/Qt/5.7/mingw53_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qdatetime.h \
 		tabledlg.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.7/mingw53_32/include/QtGui/QStandardItemModel \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		server.h \
 		C:/Qt/5.7/mingw53_32/bin/moc.exe
 	C:\Qt\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.7/mingw53_32/mkspecs/win32-g++ -ID:/Projects/server -IC:/Qt/5.7/mingw53_32/include -IC:/Qt/5.7/mingw53_32/include/QtWidgets -IC:/Qt/5.7/mingw53_32/include/QtGui -IC:/Qt/5.7/mingw53_32/include/QtANGLE -IC:/Qt/5.7/mingw53_32/include/QtNetwork -IC:/Qt/5.7/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward server.h -o debug\moc_server.cpp
@@ -445,6 +448,10 @@ debug/moc_tabledlg.cpp: C:/Qt/5.7/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.7/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.7/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.7/mingw53_32/include/QtGui/QStandardItemModel \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qicon.h \
 		tabledlg.h \
 		C:/Qt/5.7/mingw53_32/bin/moc.exe
 	C:\Qt\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.7/mingw53_32/mkspecs/win32-g++ -ID:/Projects/server -IC:/Qt/5.7/mingw53_32/include -IC:/Qt/5.7/mingw53_32/include/QtWidgets -IC:/Qt/5.7/mingw53_32/include/QtGui -IC:/Qt/5.7/mingw53_32/include/QtANGLE -IC:/Qt/5.7/mingw53_32/include/QtNetwork -IC:/Qt/5.7/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward tabledlg.h -o debug\moc_tabledlg.cpp
@@ -704,6 +711,9 @@ debug/main.o: main.cpp server.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qdatetime.h \
 		tabledlg.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.7/mingw53_32/include/QtGui/QStandardItemModel \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qapplication.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qcoreapplication.h \
@@ -831,6 +841,9 @@ debug/server.o: server.cpp server.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qdatetime.h \
 		tabledlg.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.7/mingw53_32/include/QtGui/QStandardItemModel \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		ui_server.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/QVariant \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QAction \
@@ -850,7 +863,6 @@ debug/server.o: server.cpp server.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qstyleoption.h \
@@ -1133,7 +1145,10 @@ debug/console.o: console.cpp console.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/QTime \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qdatetime.h \
 		tabledlg.h \
-		C:/Qt/5.7/mingw53_32/include/QtWidgets/QDialog
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.7/mingw53_32/include/QtGui/QStandardItemModel \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\console.o console.cpp
 
 debug/tabledlg.o: tabledlg.cpp tabledlg.h \
@@ -1235,7 +1250,65 @@ debug/tabledlg.o: tabledlg.cpp tabledlg.h \
 		C:/Qt/5.7/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.7/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.7/mingw53_32/include/QtGui/qtouchdevice.h \
-		ui_tabledlg.h
+		C:/Qt/5.7/mingw53_32/include/QtGui/QStandardItemModel \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qicon.h \
+		ui_tabledlg.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QAction \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qaction.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.7/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QTableView \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qtableview.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QFileDialog \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qfiledialog.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qdir.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qfileinfo.h \
+		server.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QMainWindow \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QTcpServer \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qtcpserver.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qhostaddress.h \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/QTcpSocket \
+		C:/Qt/5.7/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/QMessageBox \
+		C:/Qt/5.7/mingw53_32/include/QtWidgets/qmessagebox.h \
+		service.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QSet \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QPair \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QRegExp \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QTime \
+		C:/Qt/5.7/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tabledlg.o tabledlg.cpp
 
 debug/moc_server.o: debug/moc_server.cpp 

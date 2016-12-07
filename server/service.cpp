@@ -118,13 +118,13 @@ int Validator::findOperation(QString str)
 
 bool Validator::separate(QString cmd)
 {
-   /* if(m_cmdTemplate->exactMatch(cmd)){
+    if(cmd.contains("$FD$")){
  //   if(cmd.contains(*m_cmdTemplate)){
         setCmdData(dataSeparation(cmd));
         return true;
     }
     //QMessageBox::critical(0,"adw","false2",QMessageBox::Ok);
-    return false;*/
+    return false;
 }
 
 bool Validator::unity()
