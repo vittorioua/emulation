@@ -20,6 +20,9 @@ public:
     Place getFrom();
     Place getTo();
 
+    int getTimeFlight();
+    int getFlightNumber();
+
     void setFrom(Place from);
     void setTo(Place to);
 
@@ -30,8 +33,8 @@ public:
 
 private slots:
     void change();
-signals:
-    void flightData(int flightNumber, Place from, Place to, int timeFlight);
+//signals:
+ //   void flightData(int flightNumber, Place from, Place to, int timeFlight);
 private:
     Plane *plane;
     Place *from;

@@ -1,6 +1,7 @@
 #include "client.h"
 #include "ui_client.h"
 #include <QTime>
+#include <emulator.h>
 Client::Client(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Client)
@@ -23,7 +24,7 @@ Client::Client(const QString &strHost, int nPort, QWidget *parent):
     ///connect(ui->lineEdit, SIGNAL(returnPressed()),this,SLOT(slotSendToServer()));
   //  connect(ui->plainTextEdit, SIGNAL(onCommand(QString)), this, SLOT(onCommand(QString)));
     connect(ui->plainTextEdit, SIGNAL(onCommand(QString)), this, SLOT(slotSendToServer(QString)));
-    connect(this,SIGNAL(sendFlightData(QString)),this,SLOT(slotSendToServer(QString)));
+    connect(&emul,SIGNAL(sendFlightData(QString)),this,SLOT(slotSendToServer(QString)));
     //ui->openGLWidget->start();
     //ui->openGLWidget->show();
     //if (!isStarted) {

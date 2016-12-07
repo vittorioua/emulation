@@ -9,6 +9,7 @@
 #include <place.h>
 #include <flight.h>
 #include <sstream>
+
 const GLfloat PI180 = M_PI / 180;
 
 int Emulator::flightCounter = 1;
@@ -32,7 +33,7 @@ Emulator::Emulator(QWidget *parent): QGLWidget(parent)
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateGL()));
 
-    connect(this, SIGNAL(flightData(int, Place, Place, int)), this, SLOT(getFlightData(int, Place, Place, int)));
+    //connect(this,SIGNAL(sendFlightData(QString)),this,SLOT(slotSendToServer(QString)));
     timer->start(30);
 }
 
@@ -93,6 +94,12 @@ void Emulator::paintGL() {
     qglColor(plane->getColor());
     for (int i = 0; i < flights.size(); i++) {
         flights[i]->draw(glparams);
+        emit sendFlightData("$FD$ "+QString::number(flights[i]->getFrom().getAngleHor())+
+                            ","+QString::number(flights[i]->getFrom().getAngleVer())+
+                            " "+QString::number(flights[i]->getTo().getAngleHor())+
+                            ","+QString::number(flights[i]->getTo().getAngleHor())+
+                            " "+flights[i]->getFlightNumber()+
+                            " "+flights[i]->getTimeFlight());
     }
 }
 

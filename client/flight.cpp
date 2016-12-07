@@ -78,7 +78,7 @@ void Flight::change() {
         currentTime = 0;
         init();
         //timer->stop();
-        emit flightData(this->flightNumber, *this->from, *this->to, this->timeFlight);
+
     }
 }
 
@@ -88,6 +88,16 @@ Place Flight::getFrom() {
 
 Place Flight::getTo() {
     return *to;
+}
+
+int Flight::getTimeFlight()
+{
+    return timeFlight;
+}
+
+int Flight::getFlightNumber()
+{
+    return flightNumber;
 }
 
 QVector3D Flight::getPoint(double x) {

@@ -31,6 +31,7 @@ public slots:
 private slots:
 
     void on_pushButton_clicked();
+public:
 
 private:
     void systemCheck(QTime time,QString str);
