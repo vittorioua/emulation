@@ -28,6 +28,7 @@ Emulator::Emulator(QWidget *parent): QGLWidget(parent)
                                   new Place(randomFloat(0, M_PI * 2), randomFloat(0, M_PI * 2)),
                                   rand() % 1000 +500,flightCounter));
         flightCounter++;
+
     }
     emit sendFlightData("$FD$ "+QString::number(flights[0]->getFrom().getAngleHor())+
                         ","+QString::number(flights[0]->getFrom().getAngleVer())+
@@ -99,7 +100,9 @@ void Emulator::paintGL() {
     qglColor(plane->getColor());
     for (int i = 0; i < flights.size(); i++) {
         flights[i]->draw(glparams);
+
     }
+
 }
 
 void Emulator::resizeGL(int nWidth, int nHeight) {
