@@ -26,10 +26,15 @@ Emulator::Emulator(QWidget *parent): QGLWidget(parent)
         flights.append(new Flight(plane,
                                   new Place(randomFloat(0, M_PI * 2), randomFloat(0, M_PI * 2)),
                                   new Place(randomFloat(0, M_PI * 2), randomFloat(0, M_PI * 2)),
-                                  rand() % 500,flightCounter));
+                                  rand() % 1000 +500,flightCounter));
         flightCounter++;
     }
-
+    emit sendFlightData("$FD$ "+QString::number(flights[0]->getFrom().getAngleHor())+
+                        ","+QString::number(flights[0]->getFrom().getAngleVer())+
+                        " "+QString::number(flights[0]->getTo().getAngleHor())+
+                        ","+QString::number(flights[0]->getTo().getAngleHor())+
+                        " "+QString::number(flights[0]->getFlightNumber())+
+                        " "+QString::number(flights[0]->getTimeFlight()));
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateGL()));
 
@@ -94,12 +99,6 @@ void Emulator::paintGL() {
     qglColor(plane->getColor());
     for (int i = 0; i < flights.size(); i++) {
         flights[i]->draw(glparams);
-        emit sendFlightData("$FD$ "+QString::number(flights[i]->getFrom().getAngleHor())+
-                            ","+QString::number(flights[i]->getFrom().getAngleVer())+
-                            " "+QString::number(flights[i]->getTo().getAngleHor())+
-                            ","+QString::number(flights[i]->getTo().getAngleHor())+
-                            " "+QString::number(flights[i]->getFlightNumber())+
-                            " "+QString::number(flights[i]->getTimeFlight()));
     }
 }
 
