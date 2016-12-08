@@ -57,15 +57,15 @@ void TableDlg::saveFile(QString fileName)
 
 void TableDlg::getTableData(QStringList obg)
 {
-    qDebug()<<obg[0];
-    m_pModel->setData(ui->tableView->model()->index
-                                    (rowCounter,0),obg[0]);
+    QMessageBox::critical(0,"Ere",obg[1]+" "+obg[2]+" "+obg[3]+" "+obg[4]+" ",QMessageBox::Ok);
     m_pModel->setData(ui->tableView->model()->index
                                     (rowCounter,0),obg[1]);
     m_pModel->setData(ui->tableView->model()->index
                                     (rowCounter,0),obg[2]);
     m_pModel->setData(ui->tableView->model()->index
                                     (rowCounter,0),obg[3]);
+    m_pModel->setData(ui->tableView->model()->index
+                                    (rowCounter,0),obg[4]);
     ui->tableView->setModel(m_pModel);
     rowCounter++;
 }
