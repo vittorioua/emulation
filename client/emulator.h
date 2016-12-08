@@ -21,7 +21,7 @@ public:
 
     void start();
     float randomFloat(float a, float b);
-
+    void signalCaller(); //BAD REALLY BAD
 protected:
     void initializeGL();
     void resizeGL(int nWidth, int nHeight);

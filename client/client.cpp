@@ -135,6 +135,7 @@ void Client::systemCheck(QTime time, QString str)
     if (str=="RFSFS - was allowed."){
         emul.show();
         emul.resize(600, 600);
+        emul.signalCaller();
         if (!isStarted) {
             isStarted = true;
             emul.start();

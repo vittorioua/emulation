@@ -33,8 +33,8 @@ public:
 
 private slots:
     void change();
-//signals:
- //   void flightData(int flightNumber, Place from, Place to, int timeFlight);
+signals:
+    void flightData(int flightNumber, Place from, Place to, int timeFlight);
 private:
     Plane *plane;
     Place *from;

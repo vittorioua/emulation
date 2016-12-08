@@ -21,21 +21,22 @@ Emulator::Emulator(QWidget *parent): QGLWidget(parent)
     plane = new Plane(0.04f, Qt::blue);
 
     //flights.append(new Flight(plane, new Place(1.8, 0.7), new Place(4, 1)));
-
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateGL()));
+    connect(this,SIGNAL(sendFlightData(QString)),this,SLOT(slotSendToServer(QString)));
     for (int i = 0; i < 20; i++) {
         flights.append(new Flight(plane,
                                   new Place(randomFloat(0, M_PI * 2), randomFloat(0, M_PI * 2)),
                                   new Place(randomFloat(0, M_PI * 2), randomFloat(0, M_PI * 2)),
                                   rand() % 1000 +500,flightCounter));
         flightCounter++;
-
     }
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateGL()));
+    connect(this,SIGNAL(sendFlightData(QString)),this,SLOT(slotSendToServer(QString)));
 
-    //connect(this,SIGNAL(sendFlightData(QString)),this,SLOT(slotSendToServer(QString)));
     timer->start(30);
+
 }
 
 Emulator::~Emulator() {
@@ -67,6 +68,18 @@ void Emulator::genTextures() {
    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 }
 
+void Emulator::signalCaller()
+{
+    for (int i = 0; i < 20; i++) {
+        emit sendFlightData("$FD$ "+QString::number(flights[i]->getFrom().getAngleHor())+
+                                ","+QString::number(flights[i]->getFrom().getAngleVer())+
+                                " "+QString::number(flights[i]->getTo().getAngleHor())+
+                                ","+QString::number(flights[i]->getTo().getAngleHor())+
+                                " "+QString::number(flights[i]->getFlightNumber())+
+                                " "+QString::number(flights[i]->getTimeFlight()));
+    }
+}
+
 void Emulator::initializeGL() {
     qglClearColor(Qt::black);
     glEnable(GL_DEPTH_TEST);
@@ -74,6 +87,7 @@ void Emulator::initializeGL() {
     genTextures();
     glEnable(GL_TEXTURE_2D);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    //signalCaller();
 }
 
 void Emulator::paintGL() {
@@ -95,14 +109,13 @@ void Emulator::paintGL() {
     qglColor(plane->getColor());
     for (int i = 0; i < flights.size(); i++) {
         flights[i]->draw(glparams);
-
     }
-    emit sendFlightData("$FD$ "+QString::number(flights[0]->getFrom().getAngleHor())+
+    /*emit sendFlightData("$FD$ "+QString::number(flights[0]->getFrom().getAngleHor())+
                         ","+QString::number(flights[0]->getFrom().getAngleVer())+
                         " "+QString::number(flights[0]->getTo().getAngleHor())+
                         ","+QString::number(flights[0]->getTo().getAngleHor())+
                         " "+QString::number(flights[0]->getFlightNumber())+
-                        " "+QString::number(flights[0]->getTimeFlight()));
+                        " "+QString::number(flights[0]->getTimeFlight()));*/
 }
 
 void Emulator::resizeGL(int nWidth, int nHeight) {
