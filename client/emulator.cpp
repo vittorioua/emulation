@@ -30,12 +30,7 @@ Emulator::Emulator(QWidget *parent): QGLWidget(parent)
         flightCounter++;
 
     }
-    emit sendFlightData("$FD$ "+QString::number(flights[0]->getFrom().getAngleHor())+
-                        ","+QString::number(flights[0]->getFrom().getAngleVer())+
-                        " "+QString::number(flights[0]->getTo().getAngleHor())+
-                        ","+QString::number(flights[0]->getTo().getAngleHor())+
-                        " "+QString::number(flights[0]->getFlightNumber())+
-                        " "+QString::number(flights[0]->getTimeFlight()));
+
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateGL()));
 
@@ -102,7 +97,12 @@ void Emulator::paintGL() {
         flights[i]->draw(glparams);
 
     }
-
+    emit sendFlightData("$FD$ "+QString::number(flights[0]->getFrom().getAngleHor())+
+                        ","+QString::number(flights[0]->getFrom().getAngleVer())+
+                        " "+QString::number(flights[0]->getTo().getAngleHor())+
+                        ","+QString::number(flights[0]->getTo().getAngleHor())+
+                        " "+QString::number(flights[0]->getFlightNumber())+
+                        " "+QString::number(flights[0]->getTimeFlight()));
 }
 
 void Emulator::resizeGL(int nWidth, int nHeight) {
