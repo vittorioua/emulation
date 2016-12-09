@@ -24,13 +24,15 @@ private:
     QString systemCheck(QString str);
     Ui::Server *ui;
     Validator *m_ctrlValidator;
-    Calculator *m_ctrlCalculator;
+    //Calculator *m_ctrlCalculator;
    // QVector<Controller*> p;
     QMessageBox *m_msgHelper;
     QTcpServer* m_ptcpServer;
     quint16 m_nNextBlockSize=0;
     QString m_lastCData="";
     TableDlg *m_tableForm;
+protected:
+    void runHelp();
 public slots:
 
     void onCommand(QString cmd);

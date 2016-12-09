@@ -40,22 +40,6 @@ QString Server::systemCheck(QString str)
     if(str.length()==0){
         return "Server Response: Received Error - empty string.";
     }
-   /* //sendToClient("Server Response: Received \""+str+"\"",pClientSocket);
-    //
-    //block of validation and separation
-    if(m_ctrlValidator->readyToWork()){
-        if(m_ctrlValidator->separate(str)){
-            //QMessageBox::critical(0,"Message","1",QMessageBox::Ok);
-            ui->textEdit->append(m_ctrlValidator->getCmdData().first);
-            for(int i=0; m_ctrlValidator->getCmdData().second[i]!=NULL; i++){
-               ui->textEdit->append(QString::number(m_ctrlValidator->getCmdData().second[i]));
-            }
-        }else{
-            //QMessageBox::critical(0,"Message","Failed",QMessageBox::Ok);
-        }
-    }*/
-    //*/
-    //block of command checking
     if(str=="RFSFS")
     {
         m_msgHelper->setWindowTitle("ATTENTION!");

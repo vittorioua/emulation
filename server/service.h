@@ -70,13 +70,6 @@ private:
     QString m_cmdUnity;
     QStringList m_cmdData;
 };
-class Calculator: public Controller
-{
-public:
-    Calculator();
-    ~Calculator();
-protected:
-};
 
 #endif // SERVICE
 

@@ -1,5 +1,6 @@
 //Commands
-RFESO - request for engine switch-on
-RFESD - request for engine shutdown
-RFNCG - request for navigation course changing
+RFTDS - request for table data show
+RFTDH - request for table data hide
+help - show all commands
+F1 - help
 ...

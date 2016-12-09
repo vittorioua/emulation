@@ -28,8 +28,8 @@ Converter::~Converter()
 
 QStringList Converter::dataSeparation(QString str)
 {
-    QString resultStr;
-    QStringList tmp =str.split(QRegExp("\\s+|\$FD\$"),QString::SkipEmptyParts);
+    QStringList tmp =str.split(QRegExp("\\s+"),QString::SkipEmptyParts);
+    //QMessageBox::critical(0,"Server Error","2");
     return tmp;
 }
 
@@ -51,7 +51,7 @@ Validator::Validator()
 {
     //http://regexr.com/
     this->m_cmdTemplate=new QRegExp("^\-[a-z](\s[0-9]{1,}\.[0-9]{1,})+$");
-    this->m_opEnum.push_back("RFSFS");
+    this->m_opEnum.push_back("help");
     this->m_opEnum.push_back("RFESD");
     this->m_opEnum.push_back("RFNCG");
     this->m_opEnum.push_back("Y");
@@ -95,17 +95,17 @@ QString Validator::getCmdUnity()
 
 QStringList Validator::getCmdData()
 {
-    return this->m_cmdData;
+    return m_cmdData;
 }
 
 void Validator::setCmdUnity(QString obj)
 {
-    this->m_cmdUnity=obj;
+    m_cmdUnity=obj;
 }
 
 void Validator::setCmdData(QStringList obj)
 {
-    this->m_cmdData=obj;
+    m_cmdData=obj;
 }
 
 int Validator::findOperation(QString str)
@@ -120,7 +120,9 @@ bool Validator::separate(QString cmd)
 {
     if(cmd.contains("$FD$")){
  //   if(cmd.contains(*m_cmdTemplate)){
+
         setCmdData(dataSeparation(cmd));
+        //QMessageBox::critical(0,"Server Error","1");
         return true;
     }
     //QMessageBox::critical(0,"adw","false2",QMessageBox::Ok);
@@ -136,12 +138,4 @@ bool Validator::unity()
     return false;
 }
 
-Calculator::Calculator()
-{
 
-}
-
-Calculator::~Calculator()
-{
-
-}
